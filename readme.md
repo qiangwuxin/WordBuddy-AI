@@ -1,0 +1,1 @@
+# wordBuddy AI
