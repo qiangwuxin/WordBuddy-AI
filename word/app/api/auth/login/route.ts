@@ -56,15 +56,16 @@ export async function POST(request:NextRequest){
       }
 
       const {accessToken,refreshToken}=await createTokens(user.id);
-      await prisma.user.update({
+     
+       await prisma.user.update({
         where:{
             id:user.id
         },
         data:{
             refreshToken
-        }
+        },
       })
-
+     
       setAuthCookies(accessToken,refreshToken);
       return NextResponse.json({
         message:'Login successful'
