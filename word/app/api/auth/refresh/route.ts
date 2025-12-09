@@ -12,7 +12,7 @@ export async function GET(request:NextRequest){
     console.log('refresh-------------')
     const refreshToken=request.cookies.get("refresh_token")?.value;
     const redirectUrl=request.nextUrl.searchParams.get('redirect')
-         || "dashboard";
+         || "word";
 
     if(!refreshToken){
         return NextResponse.redirect(new URL('/login',request.url));

@@ -21,7 +21,7 @@ export default function LoginPage() {
       })
 
       if (res.ok) {
-        router.push('/dashboard') // 登录成功跳转
+        router.push('/word') // 登录成功跳转
       } else {
         const data = await res.json()
         setError(data.error || 'Login failed')

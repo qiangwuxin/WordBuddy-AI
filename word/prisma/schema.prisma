@@ -1,9 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
-  // output   = "../app/generated/prisma"
 }
 
 datasource db {
@@ -29,14 +25,16 @@ model PetOutfit {
   id               Int      @id @default(autoincrement())
   userId           Int
   user             User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   originalImageUrl String
-  jerseyColor      String
-  jerseyNumber     Int
+  jerseyColor      String   @default("红色")
+  jerseyNumber     Int      @default(10)
+  style            String   @default("写实")
+  position         Int      @default(1) // 1=守门员, 2=防守队员, 3=前锋
+  shootingHand     Int?     // 0=左手, 1=右手, null=随机
   resultImageUrl   String?
 
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("pet_outfits")
 }

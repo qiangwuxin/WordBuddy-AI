@@ -6,7 +6,7 @@ import{
     verifyToken
 }from './lib/jwt'
 
-const protectedPath=['/dashboard','/profile']
+const protectedPath=['/word','/pet_outfit','/profile']
 // pre     next 
 export async function middleware(request:NextRequest){
     const path=request.nextUrl.pathname;

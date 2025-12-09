@@ -21,7 +21,7 @@ export default function RegisterPage() {
       })
 
       if (res.ok) {
-        router.push('/dashboard') // 注册成功跳转
+        router.push('/login') // 注册成功跳转
       } else {
         const data = await res.json()
         setError(data.error || 'register failed')
